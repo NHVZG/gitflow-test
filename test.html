@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="a.css">
+    <style>
+        .a {
+            background-color: aqua;
+        }
+
+        .bs {
+            background-color: salmon;
+        }
+
+        .d {
+            background-color: cornflowerblue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="b bs a">
+        123
+    </div>
+    <div class="b bs a" style="background-color:rgb(250, 108, 136);">
+        456
+    </div>
+    <div class="d" style="background-color:rgb(250, 108, 136);">
+        456
+    </div>
+    <style>
+        .b {
+            background-color: navy;
+        }
+    </style>
+</body>
+<style>
+    .a {
+        background-color: darkorchid;
+    }
+</style>
+<style>
+    @import url('./a.css');
+</style>
+<!-- <link rel="stylesheet" href="a.css"> -->
+<!-- 
+    dom的css属性(e.g. background-color)
+    作用级别 important>行内样式>取决于最后定义的涉及到该属性的class
+-->
+
+</html>
