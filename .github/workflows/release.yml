@@ -33,7 +33,7 @@ jobs:
       run: |
         # npm run build
         #指定Brotli压缩,每个${{matrix.target}}版本执行一次
-        npm pkg --compress Brotli -t ${{matrix.target}} .
+        npx pkg --compress Brotli -t ${{matrix.target}} .
         mv "$(ls dist/*)" "$(ls dist/* | sed 's/gitflow-test/test-${{matrix.target}}-${{ github.ref_name }}/g')"
         echo "ASSET_NAME=$(ls dist)" >> $GITHUB_ENV
       
