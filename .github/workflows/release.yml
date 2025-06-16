@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         target: [linux, macos, windows]
-        node-version: [20]
+        node-version: [22]
 
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 22
         
     - name: Build
       run: |
@@ -32,8 +32,8 @@ jobs:
     - name: pkg
       run: |
         # npm run build
-        #指定Brotli压缩,每个${{matrix.target}}版本执行一次
-        npx pkg --compress Brotli -t ${{matrix.target}} .
+        #每个${{matrix.target}}版本执行一次
+        npx pkg -t ${{matrix.target}} .
         mv "$(ls dist/*)" "$(ls dist/* | sed 's/gitflow-test/test-${{matrix.target}}-${{ github.ref_name }}/g')"
         echo "ASSET_NAME=$(ls dist)" >> $GITHUB_ENV
       
